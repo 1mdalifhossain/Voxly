@@ -1,3 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  @apply font-body text-slate-900 bg-white transition-colors;
+}
 
+.dark body {
+  @apply text-slate-100 bg-slate-950;
+}
+
+/*
+  Dark mode is applied via a `.dark` class on <html> (see ThemeContext) and
+  ships fully wired for the Settings pages. Older pages built before dark
+  mode existed (Dashboard, Rooms, Messages, etc.) haven't been given dark:
+  variants yet — add them incrementally with `dark:bg-slate-900`,
+  `dark:text-slate-100`, `dark:border-slate-800` following the pattern used
+  under src/pages/settings/ and src/components/settings/.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+}
