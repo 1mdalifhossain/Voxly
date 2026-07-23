@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Authenticated/private app views aren't useful to index — nothing sensitive
+# is exposed here since these routes require a session anyway, but keeping
+# crawl budget on the marketing/landing page.
+Disallow: /dashboard
+Disallow: /messages
+Disallow: /settings
+Disallow: /admin
+
+Sitemap: https://YOUR-DOMAIN-HERE/sitemap.xml
